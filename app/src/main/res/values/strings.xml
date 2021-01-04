@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Image App</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_favorite">Favorite</string>
+    <string name="downloads">Downloads</string>
+    <string name="views">Views</string>
+    <string name="camera_make">Camera Make</string>
+    <string name="camera_model">Camera Model</string>
+    <string name="focal_length">Focal Length</string>
+    <string name="aperture">Aperture</string>
+    <string name="shutter_speed">Shutter Speed</string>
+    <string name="iso">ISO</string>
+    <string name="dimensions">Dimensions</string>
+    <string name="image_of_button_download">Image of button download</string>
+    <string name="image_of_button_favorite">Image of button favorite</string>
+    <string name="image_of_photo_detail">Image of photo detail</string>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+
+    <string name="mapbox_access_token">pk.eyJ1IjoiYXNvcGlhbjEyMCIsImEiOiJja2hwdGU5NHUzanRpMnRsNndxcWZhZG52In0.Mhj492icEbBuqvLMTV6SFw</string>
+</resources>

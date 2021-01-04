@@ -1,0 +1,80 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = "1.4.21"
+        appcompat_version = "1.3.0-alpha02"
+        core_ktx_version = "1.5.0-alpha05"
+        constraint_version = "2.1.0-alpha2"
+        legacy_support_version = "1.0.0"
+        junit_version = "4.13.1"
+        androidx_junit_version = "1.1.2"
+        espresso_version = "3.3.0"
+        multidex_version = "2.0.1"
+        leakcanary_version = "2.5"
+        
+        cardview_version = "1.0.0"
+        recyclerview_version = "1.2.0-alpha06"
+        material_version = "1.3.0-beta01"
+        room_version = "2.3.0-alpha04"
+
+        retrofit_version = "2.9.0"
+        logging_interceptor_version = '4.9.0'
+
+        kotlin_coroutines_version = "1.4.2"
+        lifecycle_version = "2.3.0-rc01"
+
+        nav_version = "2.3.2"
+        dagger_version = "2.30.1"
+
+        circle_image_version = "3.1.0"
+        shimmer_version = "0.5.0"
+        picasso_version = "2.8"
+        timber_version = "4.7.1"
+
+        sqlcipher_version = "4.4.2"
+        sqlite_ktx_version = "2.1.0"
+
+        mapbox_version = "9.6.0"
+        mapbox_annotation_version = "0.9.0"
+
+        google_services = "4.3.4"
+        firebase_crashlitics = "2.4.1"
+
+        firebase_version = "26.2.0"
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath 'com.squareup.leakcanary:leakcanary-deobfuscation-gradle-plugin:2.4'
+        classpath "com.google.gms:google-services:$google_services"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:$firebase_crashlitics"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = 'mapbox'
+                password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: ""
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

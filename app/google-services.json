@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "939023153706",
+    "project_id": "image-app-1606228241105",
+    "storage_bucket": "image-app-1606228241105.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939023153706:android:bad6751ec08562ec7ee153",
+        "android_client_info": {
+          "package_name": "com.sopian.imageapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939023153706-pdqgvnko3pg92boou9901qd9dt1nl7h6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh2ieVnpwJtxEvs6v8e9z1Kv2NIQaTHxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939023153706-pdqgvnko3pg92boou9901qd9dt1nl7h6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
