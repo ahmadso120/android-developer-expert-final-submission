@@ -30,5 +30,4 @@ class CheckConnection @Inject constructor(
                 return nwInfo.isConnected
             }
         }
-
 }

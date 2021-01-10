@@ -15,14 +15,14 @@ import com.sopian.imageapp.core.utils.ConnectivityReceiver
 import com.sopian.imageapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceiverListener {
-    private var binding: ActivityMainBinding? = null
+    private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private var snackbar: Snackbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding?.root)
+        setContentView(binding.root)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_main) as NavHostFragment
@@ -63,6 +63,6 @@ class MainActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityRecei
     override fun onDestroy() {
         super.onDestroy()
         snackbar = null
-        binding = null
+        unregisterReceiver(ConnectivityReceiver())
     }
 }

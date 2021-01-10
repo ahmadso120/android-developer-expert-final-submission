@@ -18,4 +18,7 @@
     <string name="favorite">Favorite</string>
 
     <string name="mapbox_access_token">pk.eyJ1IjoiYXNvcGlhbjEyMCIsImEiOiJja2hwdGU5NHUzanRpMnRsNndxcWZhZG52In0.Mhj492icEbBuqvLMTV6SFw</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="location">Location</string>
+    <string name="image_of_button_close_in_location_view">Image of button close in location view</string>
 </resources>

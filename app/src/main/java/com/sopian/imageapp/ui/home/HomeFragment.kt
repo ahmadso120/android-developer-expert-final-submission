@@ -145,7 +145,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun dismissKeyboard(windowToken: IBinder) {
-        val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
         imm?.hideSoftInputFromWindow(windowToken, 0)
     }
 

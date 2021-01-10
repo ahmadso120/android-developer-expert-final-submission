@@ -3,6 +3,7 @@ package com.sopian.imageapp.ui.detail
 import androidx.lifecycle.*
 import com.sopian.imageapp.core.domain.model.Photo
 import com.sopian.imageapp.core.domain.usecase.UnsplashUseCase
+import com.sopian.imageapp.core.utils.Event
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -13,6 +14,14 @@ class DetailViewModel @Inject constructor(
 
     private val _setIdDetail = MutableLiveData<String>()
     private val _download = MutableLiveData<String>()
+    private val _navigateToMaps = MutableLiveData<Event<String>>()
+
+    val navigateToMaps: LiveData<Event<String>>
+        get() = _navigateToMaps
+
+    fun onMapsClicked(id: String) {
+        _navigateToMaps.value = Event(id)
+    }
 
     val photoData = _setIdDetail.switchMap {
         useCase.getPhoto(it).asLiveData()
