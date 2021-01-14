@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,6 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -27,7 +27,6 @@ import com.sopian.imageapp.core.domain.model.Download
 import com.sopian.imageapp.core.utils.EventObserver
 import com.sopian.imageapp.databinding.FragmentDetailBinding
 import com.sopian.imageapp.ui.ViewModelFactory
-import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -60,6 +59,8 @@ class DetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedElementEnterTransition =
+            TransitionInflater.from(context).inflateTransition(android.R.transition.move)
         Mapbox.getInstance(requireContext(), getString(R.string.mapbox_access_token))
     }
 
@@ -81,12 +82,10 @@ class DetailFragment : Fragment() {
     }
 
     private fun observeData(view: View, savedInstanceState: Bundle?) {
-        lifecycleScope.launch {
-            observePhotoData(view)
-            downloadImage()
-            observeInfoData()
-            navigateToMaps()
-        }
+        observePhotoData(view)
+        downloadImage()
+        observeInfoData()
+        navigateToMaps()
     }
 
     private fun observeInfoData() {

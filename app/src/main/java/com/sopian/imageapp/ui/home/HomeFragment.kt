@@ -153,6 +153,7 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         binding.progressBar.stopShimmer()
         binding.progressBar.removeAllViewsInLayout()
+        binding.recyclerView.removeAllViews()
         _binding = null
     }
 }

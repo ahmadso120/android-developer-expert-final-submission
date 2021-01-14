@@ -77,6 +77,7 @@ class FavoriteFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        binding.layout.removeAllViews()
         _binding = null
     }
 }

@@ -11,10 +11,18 @@
         android:label="Home" >
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_homeFragment_to_favorite_navigation"
-            app:destination="@id/favorite_navigation" />
+            app:destination="@id/favorite_navigation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <include-dynamic
@@ -33,10 +41,18 @@
             app:argType="string" />
         <action
             android:id="@+id/action_detailFragment_to_favorite_navigation"
-            app:destination="@id/favorite_navigation" />
+            app:destination="@id/favorite_navigation"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_detailFragment_to_mapsBottomSheetFragment"
-            app:destination="@id/mapsBottomSheetFragment" />
+            app:destination="@id/mapsBottomSheetFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <dialog
         android:id="@+id/mapsBottomSheetFragment"

@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityRecei
     override fun onDestroy() {
         super.onDestroy()
         snackbar = null
+        ConnectivityReceiver.connectivityReceiverListener = null
         unregisterReceiver(ConnectivityReceiver())
     }
 }

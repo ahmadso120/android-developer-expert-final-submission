@@ -11,6 +11,10 @@
         <variable
             name="info"
             type="com.sopian.imageapp.core.domain.model.Info" />
+
+        <variable
+            name="transition"
+            type="String" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -34,6 +38,7 @@
 
                 <ImageView
                     android:id="@+id/iv_detail_image"
+                    android:transitionName="@{transition}"
                     app:imageFromUrl="@{photo.urls.regular}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -16,7 +16,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
-import com.mapbox.android.gestures.MoveGestureDetector
 import com.mapbox.mapboxsdk.Mapbox
 import com.mapbox.mapboxsdk.camera.CameraUpdateFactory
 import com.mapbox.mapboxsdk.geometry.LatLng
@@ -33,7 +32,7 @@ import com.sopian.imageapp.ui.ViewModelFactory
 import javax.inject.Inject
 
 
-class MapsBottomSheetFragment : BottomSheetDialogFragment(), MapboxMap.OnMoveListener {
+class MapsBottomSheetFragment : BottomSheetDialogFragment() {
 
     private var _binding: FragmentMapsBottomSheetBinding? = null
     private val binding get() = _binding!!
@@ -91,7 +90,7 @@ class MapsBottomSheetFragment : BottomSheetDialogFragment(), MapboxMap.OnMoveLis
         return dialog
     }
 
-    private fun createMaterialShapeDrawable(bottomSheet: View): MaterialShapeDrawable? {
+    private fun createMaterialShapeDrawable(bottomSheet: View): MaterialShapeDrawable {
         val shapeAppearanceModel =
             ShapeAppearanceModel.builder(
                 context,
@@ -158,7 +157,6 @@ class MapsBottomSheetFragment : BottomSheetDialogFragment(), MapboxMap.OnMoveLis
                     false
                 )
                 showLocation(info)
-                mapboxMap?.addOnMoveListener(this)
             }
         }
     }
@@ -201,7 +199,6 @@ class MapsBottomSheetFragment : BottomSheetDialogFragment(), MapboxMap.OnMoveLis
 
     override fun onPause() {
         super.onPause()
-        mapboxMap?.removeOnMoveListener(this)
         mapboxMap = null
         binding.mapView.onPause()
     }
@@ -223,7 +220,6 @@ class MapsBottomSheetFragment : BottomSheetDialogFragment(), MapboxMap.OnMoveLis
 
     override fun onDestroyView() {
         super.onDestroyView()
-        mapboxMap?.removeOnMoveListener(this)
         mapboxMap = null
         binding.mapsLayout.removeAllViewsInLayout()
         binding.mapView.removeAllViewsInLayout()
@@ -232,15 +228,4 @@ class MapsBottomSheetFragment : BottomSheetDialogFragment(), MapboxMap.OnMoveLis
         _binding = null
     }
 
-    override fun onMoveBegin(detector: MoveGestureDetector) {
-        binding.mapsLayout.requestDisallowInterceptTouchEvent(true)
-    }
-
-    override fun onMove(detector: MoveGestureDetector) {
-        binding.mapsLayout.requestDisallowInterceptTouchEvent(true)
-    }
-
-    override fun onMoveEnd(detector: MoveGestureDetector) {
-        binding.mapsLayout.requestDisallowInterceptTouchEvent(true)
-    }
 }
