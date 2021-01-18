@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityRecei
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
     private var snackbar: Snackbar? = null
+    private lateinit var receiver: ConnectivityReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +32,8 @@ class MainActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityRecei
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        registerReceiver(ConnectivityReceiver(), IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
+        receiver = ConnectivityReceiver()
+        registerReceiver(receiver, IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION))
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -64,6 +66,6 @@ class MainActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityRecei
         super.onDestroy()
         snackbar = null
         ConnectivityReceiver.connectivityReceiverListener = null
-        unregisterReceiver(ConnectivityReceiver())
+        unregisterReceiver(receiver)
     }
 }

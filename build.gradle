@@ -40,7 +40,7 @@ buildscript {
         google_services = "4.3.4"
         firebase_crashlitics = "2.4.1"
 
-        firebase_version = "26.2.0"
+        firebase_version = "26.3.0"
     }
     repositories {
         google()
